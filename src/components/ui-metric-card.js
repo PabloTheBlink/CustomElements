@@ -132,7 +132,7 @@ export class UiMetricCard extends LitElement {
                     `
                   : ""}
 
-                <div class="value">${this.value.split(" ")[0]} <span class="unit">${this.value.split(" ")[1] || ""}</span></div>
+                <div class="value">${(this.value || "").split(" ")[0]} <span class="unit">${(this.value || "").split(" ")[1] || ""}</span></div>
 
                 ${this.status ? html` <div class="status" style="color: var(--ui-${this.statusColor})">${this.status}</div> ` : ""}
                 ${this.trend
