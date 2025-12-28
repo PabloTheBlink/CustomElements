@@ -4,6 +4,7 @@ export class UiHeader extends LitElement {
   static properties = {
     title: { type: String },
     large: { type: Boolean },
+    subtitle: { type: String },
     backText: { type: String, attribute: "back-text" },
   };
 
@@ -53,7 +54,7 @@ export class UiHeader extends LitElement {
 
     /* Large title */
     .large-title-container {
-      padding: 8px 0 12px 0;
+      padding: 8px 0 8px 0;
     }
 
     .title-large {
@@ -61,6 +62,7 @@ export class UiHeader extends LitElement {
       font-size: 34px;
       line-height: 41px;
       letter-spacing: 0.37px;
+      margin: 0;
     }
 
     .actions {
@@ -70,6 +72,13 @@ export class UiHeader extends LitElement {
       height: 44px;
       display: flex;
       align-items: center;
+    }
+
+    .subtitle-large {
+      font-size: 15px;
+      color: var(--theme-text-secondary);
+      font-weight: normal;
+      margin-top: 0;
     }
   `;
 
@@ -98,6 +107,7 @@ export class UiHeader extends LitElement {
           ? html`
               <div class="large-title-container">
                 <h1 class="title-large">${this.title}</h1>
+                ${this.subtitle ? html`<div class="subtitle-large">${this.subtitle}</div>` : ""}
               </div>
             `
           : ""}
