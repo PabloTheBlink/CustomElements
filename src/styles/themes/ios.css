@@ -1,0 +1,79 @@
+:root {
+  /* Semantic Theme Variables - iOS Implementation */
+
+  /* Colors */
+  --theme-background: #f2f2f7;
+  --theme-surface: #ffffff;
+  --theme-text-primary: #000000;
+  --theme-text-secondary: #3c3c43; /* 60% opacity look */
+  --theme-text-tertiary: #3c3c43; /* 30% opacity look */
+  --theme-text-on-primary: #ffffff;
+  --theme-primary: #007aff; /* Blue */
+  --theme-success: #34c759; /* Green */
+  --theme-warning: #ff9500; /* Orange */
+  --theme-danger: #ff3b30; /* Red */
+  --theme-info: #5ac8fa; /* Teal/Blue */
+  --theme-accent: #5856d6; /* Indigo */
+
+  /* Grays */
+  --theme-gray-1: #8e8e93;
+  --theme-gray-2: #aeaeb2;
+  --theme-gray-3: #c7c7cc;
+  --theme-gray-4: #d1d1d6;
+  --theme-gray-5: #e5e5ea;
+  --theme-gray-6: #f2f2f7;
+
+  /* Typography */
+  --theme-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Metrics */
+  --theme-radius-card: 20px;
+  --theme-radius-button: 12px;
+  --theme-radius-sheet: 20px;
+  --theme-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --theme-shadow-raised: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  /* Components specific */
+  --theme-tab-bar-bg: rgba(249, 249, 249, 0.94);
+  --theme-header-height: 44px;
+
+  /* Sidebar */
+  --theme-sidebar-bg: rgba(245, 245, 247, 0.9);
+  --theme-sidebar-width: 280px;
+  --theme-sidebar-item-active-bg: var(--theme-warning);
+
+  /* Inputs & Forms */
+  --theme-input-bg: rgba(118, 118, 128, 0.12);
+  --theme-input-border: transparent;
+  --theme-toggle-bg-off: #e9e9ea;
+  --theme-toggle-bg-on: #34c759;
+
+  /* Transitions */
+  --theme-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --theme-duration: 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-background: #000000;
+    --theme-surface: #1c1c1e;
+    --theme-text-primary: #ffffff;
+    --theme-text-secondary: #8e8e93;
+
+    --theme-tab-bar-bg: rgba(28, 28, 30, 0.94);
+
+    --theme-gray-6: #1c1c1e;
+    --theme-gray-5: #2c2c2e;
+    --theme-gray-4: #3a3a3c;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--theme-font-family);
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

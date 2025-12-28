@@ -1,0 +1,83 @@
+:root {
+  /* Semantic Theme Variables - Dracula Theme */
+
+  /* Colors */
+  --theme-background: #282a36;
+  --theme-surface: #44475a;
+  --theme-text-primary: #f8f8f2;
+  --theme-text-secondary: #bd93f9; /* Purple accent for secondary text */
+  --theme-text-tertiary: #6272a4;
+  --theme-text-on-primary: #282a36; /* Dark text on bright purple for better contrast? Or keep white. Dracula usually uses white on purple. Let's stick to white or very light. */
+  /* Actually, accessibility says WCAG AA for #bd93f9 (Purple) on #ffffff (White) is 3.13:1 (Fail).
+     On #282a36 (Dark Background), Purple is 6:1 (Pass).
+     Text color ON the purple background? 
+     White on #bd93f9 is 3.13:1.
+     Black `#282a36` on #bd93f9 is 6.75:1.
+     So Black (Dark) text on the Purple Button is actually better.
+  */
+  --theme-text-on-primary: #282a36;
+
+  /* Palette */
+  --theme-primary: #bd93f9; /* Purple */
+  --theme-success: #50fa7b; /* Green */
+  --theme-warning: #ffb86c; /* Orange */
+  --theme-danger: #ff5555; /* Red */
+  --theme-info: #8be9fd; /* Cyan */
+  --theme-accent: #f1fa8c; /* Yellow */
+
+  /* Grays */
+  --theme-gray-1: #6272a4;
+  --theme-gray-2: #44475a;
+  --theme-gray-3: #282a36;
+  --theme-gray-4: #191a21; /* Slightly darker */
+  --theme-gray-5: #44475a;
+  --theme-gray-6: #282a36;
+
+  /* Typography */
+  --theme-font-family: "Fira Code", "Consolas", monospace, sans-serif;
+
+  /* Metrics */
+  --theme-radius-card: 8px;
+  --theme-radius-button: 4px;
+  --theme-radius-sheet: 16px;
+
+  /* Shadows */
+  --theme-shadow-card: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --theme-shadow-raised: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  /* Header Overrides */
+  --theme-header-height: 50px;
+  --theme-header-justify: center;
+  --theme-header-padding: 0;
+  --theme-header-font-weight: 600;
+  --theme-header-font-size: 18px;
+  --theme-header-text-align: center;
+
+  /* Sidebar */
+  --theme-sidebar-bg: #21222c;
+  --theme-sidebar-width: 260px;
+  --theme-sidebar-item-active-bg: #44475a;
+
+  /* Inputs & Forms */
+  --theme-input-bg: #44475a;
+  --theme-input-border: transparent;
+  --theme-toggle-bg-off: #6272a4;
+  --theme-toggle-bg-on: #50fa7b;
+
+  /* Tab Bar Overrides */
+  --theme-tab-bar-bg: #282a36;
+  --theme-tab-bar-blur: none;
+  --theme-tab-bar-border: 1px solid #44475a;
+
+  /* Transitions */
+  --theme-ease: ease-in-out;
+  --theme-duration: 0.2s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--theme-font-family);
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+}

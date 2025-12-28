@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Health Demo</title>
+    <link rel="stylesheet" href="./src/styles/themes/ios.css" />
+    <script type="module" src="./src/main.js"></script>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      
+      /* Hide Tab Bar on Desktop if using Sidebar */
+      /* Hide Tab Bar on Desktop if using Sidebar */
+      @media (min-width: 768px) {
+          .mobile-tab-bar {
+              display: none !important;
+          }
+          ui-view {
+              --safe-area-bottom: 0px;
+          }
+      }
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      /* Demo: Trigger area for sheet */
+      .clickable {
+        cursor: pointer;
+      }
+
+      /* Sheet content styles */
+      .sheet-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ui-app>
+    <ui-split-view>
+        <!-- Sidebar (Desktop) -->
+        <ui-sidebar slot="sidebar">
+            <div slot="header">
+                 <ui-text variant="title1" style="margin-bottom: 20px;">Health</ui-text>
+                 <ui-search-bar placeholder="Search"></ui-search-bar>
+            </div>
+            
+            <ui-sidebar-item label="Resumen" active>
+                <span slot="icon">❤️</span>
+            </ui-sidebar-item>
+            <ui-sidebar-item label="Explorar">
+                <span slot="icon">🧭</span>
+            </ui-sidebar-item>
+            <ui-sidebar-item label="Compartir">
+                 <span slot="icon">📤</span>
+            </ui-sidebar-item>
+             <ui-sidebar-item label="Datos">
+                 <span slot="icon">📄</span>
+            </ui-sidebar-item>
+        </ui-sidebar>
+    
+        <!-- Main Content -->
+        <div slot="detail" style="height: 100%; width: 100%;">
+            <ui-view>
+              <ui-header slot="header" title="Constantes" large>
+                <div slot="trailing" style="color: var(--theme-primary)">Edit</div>
+              </ui-header>
+
+              <div class="grid">
+          <!-- VO2 Max -->
+          <ui-metric-card class="full-width" label="VO₂ máx." value="50.2" status="Excelente" statusColor="blue" chartType="bar" .chartData="${[10, 20, 30, 40, 50, 45, 52]}">
+            <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" /></svg>
+          </ui-metric-card>
+
+          <!-- VFC Histórico (Clickable to open sheet) -->
+          <ui-metric-card class="clickable" id="vfc-card" label="VFC histórico" value="52.8 ms" trend="down" trendLabel="Ha bajado" chartType="line" .chartData="${[60, 58, 55, 54, 53, 52.8]}" chartColor="var(--ui-orange)">
+            <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18.5l9-13 9 13H3z" /></svg>
+          </ui-metric-card>
+
+          <!-- Histórico FCR -->
+          <ui-metric-card label="Histórico FCR" value="55.6 bpm" status="Excelente" statusColor="blue">
+            <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="var(--ui-red)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
+            <!-- Manual chart injection for custom look if needed, or update component to handle flexible layout -->
+            <div style="margin-top: 16px; height: 30px">
+              <ui-chart type="line" .data="${[55, 56, 55, 54, 55, 55.6]}" color="var(--ui-blue)"></ui-chart>
+              <ui-slider min="40" max="100" value="55" style="margin-top: -30px; opacity: 0.5"></ui-slider>
+              <!-- Visual hack for the gauge look -->
+            </div>
+          </ui-metric-card>
+
+          <!-- Misc Cards -->
+          <ui-card class="full-width">
+            <div style="padding: 16px; display: flex; align-items: baseline; gap: 8px">
+              <ui-text variant="title1">135.4</ui-text>
+              <ui-text variant="body" color="secondary">lbs</ui-text>
+            </div>
+            <div style="padding: 0 16px 16px 16px">
+              <div style="display: flex; gap: 4px; align-items: center">
+                <div style="width: 16px; height: 16px; background: var(--ui-gray-4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px">→</div>
+                <ui-text variant="caption2" color="secondary">Estable</ui-text>
+              </div>
+              <div style="height: 40px; margin-top: 8px">
+                <ui-chart type="line" .data="${[136, 135.8, 135.5, 135.4]}" color="var(--ui-indigo)"></ui-chart>
+              </div>
+            </div>
+          </ui-card>
+
+          <ui-metric-card label="Masa magra" value="94.8 lbs" chartType="line" .chartData="${[90, 92, 94, 94.8]}" chartColor="var(--ui-teal)">
+            <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+          </ui-metric-card>
+
+          <ui-metric-card label="Grasa corporal" value="16.4%" status="Fitness" statusColor="blue">
+            <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM19 9h-2V7h-2v2h-2v2h2v2h2v2h2V9zm-8 4v7c0 1.1.9 2 2 2s2-.9 2-2v-7h-4z" /></svg>
+            <ui-slider min="0" max="30" value="16.4" style="margin-top: 16px; pointer-events: none"></ui-slider>
+          </ui-metric-card>
+        </div>
+        
+        <!-- Mobile Tab Bar (Inside ui-view footer for correct positioning) -->
+        <ui-tab-bar slot="footer" class="mobile-tab-bar">
+          <ui-tab-item label="Resumen" active>
+              <svg slot="icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
+            </ui-tab-item>
+            <ui-tab-item label="Fitness">
+              <svg slot="icon" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22 14.86 20.57 16.29 22 18.43 19.86 19.86 21.29 21.29 19.86l-1.43-1.43L22 16.29l-1.43-1.43z" /></svg>
+            </ui-tab-item>
+        </ui-tab-bar>
+      </ui-view>
+    </div>
+
+      <!-- Interactive Sheet -->
+      <ui-sheet id="detail-sheet">
+        <ui-text variant="title2" style="text-align: center; margin-bottom: 24px">Detalle VFC</ui-text>
+
+        <ui-segmented-control .options="${['Día', 'Semana', 'Mes', '6 meses']}" selected="0"> </ui-segmented-control>
+
+        <div class="sheet-controls">
+          <div>
+            <ui-text variant="headline">Objetivo diario</ui-text>
+            <ui-slider min="0" max="100" value="65" step="1"></ui-slider>
+            <ui-text variant="caption1" color="secondary">65 ms</ui-text>
+          </div>
+
+          <ui-button variant="primary" block>Ver todos los datos</ui-button>
+          <ui-button variant="secondary" block>Editar configuración</ui-button>
+        </div>
+      </ui-sheet>
+    </ui-app>
+
+    <script>
+      // Interaction logic
+      const vfcCard = document.getElementById("vfc-card");
+      const sheet = document.getElementById("detail-sheet");
+
+      vfcCard.addEventListener("click", () => {
+        sheet.setAttribute("is-open", "");
+      });
+
+      sheet.addEventListener("close", () => {
+        sheet.removeAttribute("is-open");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+  /* Semantic Theme Variables - Cyberpunk Theme */
+
+  /* Colors */
+  --theme-background: #000b1e; /* Deep dark blue/black */
+  --theme-surface: #051428;
+  --theme-text-primary: #e0fbfc;
+  --theme-text-secondary: #00f0ff; /* Neon cyan text for secondary */
+  --theme-text-tertiary: #7df9ff;
+  --theme-text-on-primary: #000000; /* Black text on neon yellow */
+
+  /* Palette - Neon */
+  --theme-primary: #fcee0a; /* Cyber Yellow */
+  --theme-success: #39ff14; /* Neon Green */
+  --theme-warning: #ff0099; /* Neon Pink */
+  --theme-danger: #ff2a6d; /* Red/Pink */
+  --theme-info: #05d9e8; /* Electric Blue */
+  --theme-accent: #d1f7ff;
+
+  /* Grays - Cool blues */
+  --theme-gray-1: #00f0ff;
+  --theme-gray-2: #7df9ff;
+  --theme-gray-3: #005678;
+  --theme-gray-4: #00344d;
+  --theme-gray-5: #001e30;
+  --theme-gray-6: #000b1e;
+
+  /* Typography */
+  --theme-font-family: "Courier New", Courier, monospace;
+
+  /* Metrics - Sharp and Edgy */
+  --theme-radius-card: 0px;
+  --theme-radius-button: 0px;
+  --theme-radius-sheet: 0px;
+
+  /* Shadows - Glowing */
+  --theme-shadow-card: 0 0 10px rgba(0, 240, 255, 0.2), 0 0 2px rgba(0, 240, 255, 0.5);
+  --theme-shadow-raised: 0 0 20px rgba(252, 238, 10, 0.3);
+
+  /* Header Overrides */
+  --theme-header-height: 60px;
+  --theme-header-justify: space-between;
+  --theme-header-padding: 0 20px;
+  --theme-header-font-weight: 700;
+  --theme-header-font-size: 24px;
+  --theme-header-text-align: left;
+  --theme-header-title-padding-left: 0;
+
+  /* Tab Bar Overrides */
+  --theme-tab-bar-bg: #000b1e;
+  --theme-tab-bar-blur: none;
+  --theme-tab-bar-border: 2px solid #00f0ff;
+
+  /* Sidebar */
+  --theme-sidebar-bg: #000510;
+  --theme-sidebar-width: 300px;
+  --theme-sidebar-border-right: 1px solid #00f0ff;
+  --theme-sidebar-item-active-bg: rgba(0, 240, 255, 0.2);
+
+  /* Inputs & Forms */
+  --theme-input-bg: #051428;
+  --theme-input-border: #00f0ff;
+  --theme-toggle-bg-off: #00344d;
+  --theme-toggle-bg-on: #fcee0a;
+
+  /* Slider */
+  --theme-slider-thumb-size: 20px;
+  --theme-slider-thumb-color: #fcee0a;
+
+  /* Segmented Control */
+  --theme-segment-bg: #000000;
+  --theme-segment-thumb-bg: #fcee0a;
+  --theme-segment-text-selected: #000000; /* Black text when selected */
+  --theme-segment-padding: 4px;
+  --theme-segment-shadow: 0 0 5px #fcee0a;
+
+  /* Transitions */
+  --theme-ease: steps(5); /* Glitchy feel */
+  --theme-duration: 0.1s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--theme-font-family);
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+  text-transform: uppercase; /* Cyberpunk style */
+  letter-spacing: 1px;
+}
+
+/* Force borders for contrast in Cyberpunk */
+ui-card {
+  border: 1px solid var(--theme-text-secondary);
+}

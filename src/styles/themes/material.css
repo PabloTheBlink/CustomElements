@@ -1,0 +1,104 @@
+:root {
+  /* Semantic Theme Variables - Material Design 3 Implementation */
+
+  /* Colors */
+  --theme-background: #fffbfe;
+  --theme-surface: #f3f3f6; /* Surface Container Low */
+  --theme-text-primary: #1d1b20;
+  --theme-text-secondary: #49454f;
+  --theme-text-tertiary: #75707b;
+  --theme-text-on-primary: #ffffff;
+
+  /* Palette - MD3 Baseline Purple */
+  --theme-primary: #6750a4;
+  --theme-success: #468653; /* Custom Green */
+  --theme-warning: #efb041;
+  --theme-danger: #b3261e;
+  --theme-info: #006d85;
+  --theme-accent: #625b71;
+
+  /* Grays */
+  --theme-gray-1: #49454f;
+  --theme-gray-2: #79747e;
+  --theme-gray-3: #cac4d0;
+  --theme-gray-4: #e7e0ec;
+  --theme-gray-5: #f3edf7; /* Surface Container */
+  --theme-gray-6: #fffbfe;
+
+  /* Typography - Material uses Roboto */
+  --theme-font-family: "Roboto", "Segoe UI", BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+
+  /* Metrics */
+  --theme-radius-card: 12px;
+  --theme-radius-button: 20px; /* Pillow shape for MD3 buttons */
+  --theme-radius-sheet: 28px;
+
+  /* Shadows - Elevation 1 and 3 */
+  --theme-shadow-card: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --theme-shadow-raised: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+
+  /* Header Overrides */
+  --theme-header-height: 64px; /* Taller AppBar */
+  --theme-header-justify: flex-start; /* Left-aligned */
+  --theme-header-padding: 16px;
+  --theme-header-font-weight: 400; /* Regular weight for Headline Small */
+  --theme-header-font-size: 22px;
+  --theme-header-text-align: left;
+  --theme-header-title-padding-left: 56px; /* Space for back icon/button in Material */
+
+  /* Tab Bar Overrides */
+  --theme-tab-bar-bg: #f3edf7; /* Solid surface container */
+  --theme-tab-bar-blur: none;
+  --theme-tab-bar-border: none;
+
+  /* Segmented Control Overrides - Navigation Rail style or Tabs */
+  --theme-segment-bg: transparent; /* No background track */
+  --theme-segment-thumb-bg: var(--theme-primary); /* Primary indicator (if pill) or underline */
+  --theme-segment-padding: 0px;
+  --theme-segment-shadow: none; /* Flat */
+
+  /* OR better yet: Segmented Button style (Outlined) */
+  --theme-segment-bg: transparent;
+  --theme-segment-thumb-bg: var(--theme-secondary-container, #e8def8); /* Secondary Container */
+
+  /* Slider Overrides */
+  --theme-slider-thumb-size: 20px;
+  --theme-slider-thumb-color: var(--theme-primary); /* Colored thumb */
+
+  /* Sidebar */
+  --theme-sidebar-bg: var(--theme-surface);
+  --theme-sidebar-width: 320px;
+  --theme-sidebar-item-active-bg: var(--theme-primary); /* Purple active state */
+
+  /* Transitions */
+  --theme-ease: cubic-bezier(0.2, 0, 0, 1); /* Emphasized easing */
+  --theme-duration: 0.2s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-background: #1c1b1f;
+    --theme-surface: #2a2830;
+    --theme-text-primary: #e6e1e5;
+    --theme-text-secondary: #cac4d0;
+
+    --theme-primary: #d0bcff; /* Lighter purple for dark mode */
+    --theme-tab-bar-bg: #2b2930;
+
+    --theme-segment-thumb-bg: #4a4458;
+
+    --theme-gray-6: #1c1b1f;
+    --theme-gray-5: #2b2930;
+    --theme-gray-4: #4a4458;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--theme-font-family);
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
