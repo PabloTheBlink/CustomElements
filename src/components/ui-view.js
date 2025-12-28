@@ -8,7 +8,7 @@ export class UiView extends LitElement {
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      padding-bottom: var(--safe-area-bottom, 83px); /* Safe area for tab bar */
+      padding-bottom: 0; /* padding-bottom: var(--safe-area-bottom, 83px);  Removed to allow full height background */
     }
 
     .content {
@@ -17,6 +17,7 @@ export class UiView extends LitElement {
       padding: 16px;
       -webkit-overflow-scrolling: touch;
       padding-top: 0; /* Let header handle top padding if needed, or use safe-area */
+      padding-bottom: 100px; /* Space for floating footer */
     }
   `;
 

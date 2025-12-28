@@ -6,27 +6,29 @@ export class UiTabBar extends LitElement {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background: var(--theme-tab-bar-bg);
-      backdrop-filter: var(--theme-tab-bar-blur, blur(20px));
-      -webkit-backdrop-filter: var(--theme-tab-bar-blur, blur(20px));
-      /* border-top: var(--theme-tab-bar-border, 0.5px solid rgba(0, 0, 0, 0.2)); Remove top border since it is floating */
+      /* background: var(--theme-tab-bar-bg); Use specific background for floating card to ensure contrast */
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.1); /* Darker border for light mode */
       padding-top: 15px;
-      padding-bottom: 15px; /* Balanced padding */
+      padding-bottom: 15px;
       position: fixed;
-      bottom: 30px; /* Floating from bottom */
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      max-width: 400px; /* Max width for larger screens */
+      max-width: 400px;
       z-index: 1000;
-      border-radius: 30px; /* Rounded corners */
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.05); /* Stronger double shadow */
     }
 
     @media (prefers-color-scheme: dark) {
       :host {
-        background: rgba(28, 28, 30, 0.94);
-        border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+        background: rgba(30, 30, 32, 0.95); /* High opacity dark bg */
+        border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly clearer border */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for dark mode */
       }
     }
 
