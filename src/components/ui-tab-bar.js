@@ -9,13 +9,18 @@ export class UiTabBar extends LitElement {
       background: var(--theme-tab-bar-bg);
       backdrop-filter: var(--theme-tab-bar-blur, blur(20px));
       -webkit-backdrop-filter: var(--theme-tab-bar-blur, blur(20px));
-      border-top: var(--theme-tab-bar-border, 0.5px solid rgba(0, 0, 0, 0.2));
-      padding-top: 10px;
-      padding-bottom: 34px; /* Safe area */
+      /* border-top: var(--theme-tab-bar-border, 0.5px solid rgba(0, 0, 0, 0.2)); Remove top border since it is floating */
+      padding-top: 15px;
+      padding-bottom: 15px; /* Balanced padding */
       position: fixed;
-      bottom: 0;
-      width: 100%;
+      bottom: 30px; /* Floating from bottom */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px; /* Max width for larger screens */
       z-index: 1000;
+      border-radius: 30px; /* Rounded corners */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
     }
 
     @media (prefers-color-scheme: dark) {
