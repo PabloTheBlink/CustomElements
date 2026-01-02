@@ -22,10 +22,10 @@ export class UiCheckbox extends LitElement {
     }
 
     .checkbox {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%; /* iOS style is usually circle for selection list, or rounded square. Let's go with circle. */
-      border: 1px solid var(--theme-gray-3); /* Unchecked border */
+      width: 24px;
+      height: 24px;
+      border-radius: 6px; /* Rounded square like iOS icons */
+      border: 1.5px solid var(--theme-gray-3); /* Unchecked border */
       background: transparent;
       box-sizing: border-box;
       display: flex;
