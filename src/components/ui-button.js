@@ -4,6 +4,7 @@ export class UiButton extends LitElement {
   static properties = {
     variant: { type: String }, // primary, secondary, ghost
     block: { type: Boolean },
+    type: { type: String },
   };
 
   static styles = css`
@@ -58,10 +59,21 @@ export class UiButton extends LitElement {
 
   render() {
     return html`
-      <button class="${this.variant || "primary"}">
+      <button type="${this.type || "button"}" class="${this.variant || "primary"}" @click="${this._handleClick}">
         <slot></slot>
       </button>
     `;
+  }
+
+  _handleClick(e) {
+    if (this.type === "submit") {
+      const form = this.closest("form");
+      if (form) {
+        e.preventDefault();
+        e.stopPropagation();
+        form.requestSubmit();
+      }
+    }
   }
 }
 

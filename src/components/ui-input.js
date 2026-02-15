@@ -1,6 +1,8 @@
 import { LitElement, html, css } from "https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js";
 
 export class UiInput extends LitElement {
+  static formAssociated = true;
+
   static properties = {
     label: { type: String },
     placeholder: { type: String },
@@ -8,7 +10,19 @@ export class UiInput extends LitElement {
     type: { type: String }, // text, password, email, number
     helper: { type: String },
     error: { type: Boolean },
+    name: { type: String },
   };
+
+  constructor() {
+    super();
+    this.internals = this.attachInternals();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has("value")) {
+      this.internals.setFormValue(this.value);
+    }
+  }
 
   static styles = css`
     :host {
@@ -35,7 +49,9 @@ export class UiInput extends LitElement {
       border-radius: var(--theme-radius-button, 10px);
       color: var(--theme-text-primary);
       outline: none;
-      transition: border-color 0.2s, background 0.2s;
+      transition:
+        border-color 0.2s,
+        background 0.2s;
     }
 
     input:focus {
@@ -66,7 +82,7 @@ export class UiInput extends LitElement {
   render() {
     return html`
       ${this.label ? html`<label>${this.label}</label>` : ""}
-      <input type="${this.type || "text"}" placeholder="${this.placeholder || ""}" .value="${this.value || ""}" @input="${(e) => (this.value = e.target.value)}" />
+      <input name="${this.name || ""}" type="${this.type || "text"}" placeholder="${this.placeholder || ""}" .value="${this.value || ""}" @input="${(e) => (this.value = e.target.value)}" />
       ${this.helper ? html`<div class="helper">${this.helper}</div>` : ""}
     `;
   }
