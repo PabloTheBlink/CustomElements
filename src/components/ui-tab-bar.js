@@ -6,8 +6,7 @@ export class UiTabBar extends LitElement {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      /* background: var(--theme-tab-bar-bg); Use specific background for floating card to ensure contrast */
-      background: rgba(255, 255, 255, 0.95);
+      background: var(--theme-tab-bar-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 0, 0, 0.1); /* Darker border for light mode */
@@ -21,7 +20,9 @@ export class UiTabBar extends LitElement {
       max-width: 400px;
       z-index: 1000;
       border-radius: 30px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.05); /* Stronger double shadow */
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.15),
+        0 4px 10px rgba(0, 0, 0, 0.05); /* Stronger double shadow */
     }
 
     @media (prefers-color-scheme: dark) {
